@@ -1,7 +1,6 @@
 {
-  "name": "hardhat-template",
+  "name": "account-binary-search-tree",
   "version": "1.0.0",
-  "description": "this is a hardhat template",
   "main": "hardhat.config.ts",
   "scripts": {
     "compile": "hardhat compile && hardhat typechain",
@@ -17,7 +16,7 @@
     "web3"
   ],
   "author": "Daniel Gretzke",
-  "license": "AGPL-3.0-only",
+  "license": "MIT",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.1",
     "@nomiclabs/hardhat-etherscan": "^3.1.2",

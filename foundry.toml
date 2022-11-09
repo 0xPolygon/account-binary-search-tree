@@ -1,0 +1,15 @@
+[profile.default]
+src = 'contracts'
+test = 'test/foundry'
+libs = ['node_modules', 'lib']
+out = 'out'
+cache_path  = 'forge-cache'
+verbosity = 2
+# comment out if you notice any weird behavior
+# sparse_mode = true
+
+# do not use for computationally expensive tests
+[profile.intense.fuzz]
+runs = 10000
+
+# See more config options https://book.getfoundry.sh/reference/config.html

@@ -14,3 +14,9 @@ artifacts
 !.openzeppelin/mainnet.json
 
 .DS_Store
+
+# Foundry
+forge-cache/
+out/
+forge-coverage/
+lcov.info

@@ -1,26 +1,34 @@
-# Sample Hardhat Project
+# Account Binary Search Tree
 
-[![License](https://img.shields.io/badge/License-AGPLv3-green.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![CI Status](https://github.com/gretzke/hardhat-typescript-template/actions/workflows/tests.yml/badge.svg)](https://github.com/gretzke/hardhat-typescript-template/actions)
-[![Coverage Status](https://coveralls.io/repos/github/gretzke/hardhat-typescript-template/badge.svg?branch=main&t=ZTUm69)](https://coveralls.io/github/gretzke/hardhat-typescript-template?branch=main)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![CI Status](https://github.com/gretzke/account-binary-search-tree/actions/workflows/tests.yml/badge.svg)](https://github.com/gretzke/account-binary-search-tree/actions)
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+This project demonstrates an implementation of a self balancing binary search tree for use cases where accounts need to be sorted by their balance. This could be used inside of a game where players are sorted by their points or a staking implementation where stakers need to be sorted by their stake.
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+If an array or linked list was used for such a use case the insertion and deletion cost would be `O(n)` worst case which is not suitable for a smart contract implementation. With this self balancing binary implementation the insertion and deletion cost can be reduced to `O(log n)`. This library is based on [Rob Hitchens's (B9Labs) order statistics tree](https://github.com/rob-Hitchens/OrderStatisticsTree).
+
+Dor more information on red-black trees see https://en.wikipedia.org/wiki/Red%E2%80%93black_tree
 
 ## Build and Test
 
 On the project root, run:
 
-```
+```bash
 $ npm i                 # install dependencies
 $ npm run compile       # compile contracts and generate typechain
-$ npm test              # run tests
+$ npm test              # run contract tests
+```
+
+To run foundry tests for the library:
+
+```bash
+$ forge build           # compile contracts
+$ forge test            # run library tests
 ```
 
 optional:
 
-```
+```bash
 $ npm run coverage      # run test coverage tool
 ```
 
