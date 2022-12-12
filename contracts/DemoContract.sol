@@ -9,6 +9,10 @@ contract DemoContract {
 
     constructor() {}
 
+    /**
+     * @notice deposits native asset to the contract, places msg.sender into tree
+     * (if they aren't already)
+     */
     function deposit() external payable {
         Account storage account = _accounts.get(msg.sender);
         // if account already present in tree, remove and reinsert to maintain sort
@@ -20,6 +24,9 @@ contract DemoContract {
         _accounts.insert(msg.sender, account);
     }
 
+    /**
+     * @notice withdraws from deposited funds, rebalances tree
+     */
     function withdraw() external {
         Account storage account = _accounts.get(msg.sender);
         uint256 balance = account.balance;
@@ -30,6 +37,11 @@ contract DemoContract {
         assert(success);
     }
 
+    /**
+     * @notice returns top `n` accounts in tree
+     * @param n uint256 of how many accounts to return
+     * @return sortedAddresses array of addresses
+     */
     function sortedAccounts(uint256 n) public view returns (address[] memory) {
         uint256 length = n <= _accounts.count ? n : _accounts.count;
         address[] memory sortedAddresses = new address[](length);
